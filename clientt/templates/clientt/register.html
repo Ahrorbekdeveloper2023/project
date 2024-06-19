@@ -1,0 +1,17 @@
+{% extends 'clientt/dashboard.html' %}
+
+{% block content %}
+
+<div class="container p-4">
+    <h1>Register page</h1>
+
+<form  method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+    {{form}}
+    
+    <button type="submit" class="btn btn-outline-info">Register</button>
+</form>
+</div>
+
+{% endblock content %}

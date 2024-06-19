@@ -1,0 +1,29 @@
+{% extends 'clientt/dashboard.html' %}
+
+{% block content %}
+<div class="container">
+    <table class="table table-success table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">User role</th>
+                <th scope="col">Button</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user %}
+            <tr>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.user_role}}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{% url 'client:users_edit' user.id %}">Update</a>
+                    <a class="btn btn-outline-danger" href="{% url 'client:user_delete' user.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
